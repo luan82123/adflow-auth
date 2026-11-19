@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>AdFlow - Đang chuyển về tool</title>
+<style>body{font-family:system-ui,Segoe UI,Arial,sans-serif;background:#f5f6f8;display:flex;align-items:center;justify-content:center;height:100vh;margin:0}
+.c{background:#fff;padding:32px 40px;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.08);text-align:center;max-width:460px}
+a.b{display:inline-block;margin-top:16px;background:#e5254b;color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none}</style></head>
+<body><div class="c"><h2>Đăng nhập thành công</h2><p id="m">Đang chuyển về AdFlow trên máy của bạn...</p>
+<a class="b" id="l" href="#">Mở lại AdFlow</a>
+<p style="color:#888;font-size:13px;margin-top:18px">Nếu không tự chuyển, hãy chắc chắn AdFlow đang chạy rồi bấm nút trên.</p></div>
+<script>
+(function(){
+  var q = window.location.search || "";
+  var target = "http://localhost:8765/callback" + q;
+  document.getElementById("l").href = target;
+  if (!/auth_code=|code=/.test(q)) { document.getElementById("m").textContent = "Không thấy mã đăng nhập từ TikTok. Hãy bấm Đăng nhập lại trong AdFlow."; return; }
+  window.location.replace(target);
+})();
+</script></body></html>
